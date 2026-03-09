@@ -210,7 +210,7 @@ function buildWhatsAppPayload(name, phone, email) {
     text += `• ${g.name} x${g.qty} — R ${lineTotal.toFixed(2)}%0A`;
   });
   text += `%0ASubtotal: R ${total.toFixed(2)}%0A%0A`;
-  text += `Customer: ${encodeURIComponent(name)}%0A`;
+  text += `Customer: ${encodeURIComponent(name || "Customer")}%0A`;
   if (phone) text += `Phone: ${encodeURIComponent(phone)}%0A`;
   if (email) text += `Email: ${encodeURIComponent(email)}%0A`;
   return { text, total };
@@ -222,7 +222,7 @@ window.sendOrder = function () {
     const phoneEl = $("#c-phone");
     const emailEl = $("#c-email");
 
-    const name = nameEl?.value.trim() || "";
+    const name = nameEl?.value.trim() || "Customer";
     const phone = phoneEl?.value.trim() || "";
     const email = emailEl?.value.trim() || "";
 
