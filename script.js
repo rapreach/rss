@@ -216,28 +216,33 @@ function buildWhatsAppPayload(name, phone, email) {
   return { text, total };
 }
 
-window.sendOrder = function() {
+window.sendOrder = function () {
   try {
     const nameEl = $("#c-name");
     const phoneEl = $("#c-phone");
     const emailEl = $("#c-email");
+
     const name = nameEl?.value.trim() || "Customer";
     const phone = phoneEl?.value.trim() || "";
     const email = emailEl?.value.trim() || "";
 
     const { text } = buildWhatsAppPayload(name, phone, email);
+
     window.open(`https://wa.me/${RAPREACH_WHATSAPP}?text=${text}`, "_blank");
 
-    // Clear cart after sending
+    // Clear cart
     order = [];
     saveOrder();
     renderOrder();
-    $("#rapreach-cart-modal").style.display = "none";
+
+    const modal = $("#rapreach-cart-modal");
+    if (modal) modal.style.display = "none";
+
   } catch (e) {
     console.error("sendOrder error", e);
     alert("Could not send order. Try again.");
-    }
-  };
+  }
+};
 
 /* ---------- HELPERS ---------- */
 function escapeHtml(s) {
