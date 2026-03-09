@@ -221,10 +221,9 @@ window.sendOrder = function() {
     const nameEl = $("#c-name");
     const phoneEl = $("#c-phone");
     const emailEl = $("#c-email");
-    const name = nameEl?.value.trim() || "";
+    const name = nameEl?.value.trim() || "Customer";
     const phone = phoneEl?.value.trim() || "";
-    const email = emailEl?.value.trim() || "";}
-    /* if (!name) {alert("Please enter your name."); nameEl?.focus(); return;}*/
+    const email = emailEl?.value.trim() || "";
 
     const { text } = buildWhatsAppPayload(name, phone, email);
     window.open(`https://wa.me/${RAPREACH_WHATSAPP}?text=${text}`, "_blank");
