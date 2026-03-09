@@ -236,6 +236,7 @@ window.sendOrder = function() {
   } catch (e) {
     console.error("sendOrder error", e);
     alert("Could not send order. Try again.");
+    }
   };
 
 /* ---------- HELPERS ---------- */
