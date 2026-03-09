@@ -222,7 +222,7 @@ window.sendOrder = function () {
     const phoneEl = $("#c-phone");
     const emailEl = $("#c-email");
 
-    const name = nameEl?.value.trim() || "Customer";
+    const name = nameEl?.value.trim() || "";
     const phone = phoneEl?.value.trim() || "";
     const email = emailEl?.value.trim() || "";
 
