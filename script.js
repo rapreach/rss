@@ -224,7 +224,7 @@ window.sendOrder = function() {
     const name = nameEl?.value.trim() || "";
     const phone = phoneEl?.value.trim() || "";
     const email = emailEl?.value.trim() || "";
-    if (!name) { alert("Please enter your name."); nameEl?.focus(); return; }
+    }
 
     const { text } = buildWhatsAppPayload(name, phone, email);
     window.open(`https://wa.me/${RAPREACH_WHATSAPP}?text=${text}`, "_blank");
